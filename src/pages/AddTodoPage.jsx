@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function AddTodoPage({ onAdd, history }) {
+function AddTodoPage({ onAdd }) {
   const [newTodo, setNewTodo] = useState({ title: '', content: '' });
+  const navigate = useNavigate();
 
   const handleTitleChange = (e) => {
     setNewTodo({ ...newTodo, title: e.target.value });
@@ -14,7 +16,7 @@ function AddTodoPage({ onAdd, history }) {
   const handleAddCatatan = () => {
     onAdd(newTodo);
     setNewTodo({ title: '', content: '' });
-    history.push('/');
+    navigate('/'); // Use the navigate function to go to the home page
   };
 
   return (

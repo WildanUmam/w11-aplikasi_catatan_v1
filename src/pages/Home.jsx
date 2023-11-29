@@ -6,6 +6,15 @@ function Home({ todos, onDelete, searchTerm, setSearchTerm }) {
     todo.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleLogout = () => {
+    // Implement your logout logic here
+    // For example, clearing user authentication tokens
+    console.log('Logout clicked');
+    // Redirect to the login page
+    // You can replace '/login' with the actual path to your login page
+    window.location.href = '/login';
+  };
+
   return (
     <div>
       <label htmlFor="search">
@@ -19,6 +28,11 @@ function Home({ todos, onDelete, searchTerm, setSearchTerm }) {
         className="mb-3"
         placeholder="Cari Berdasarkan Judul"
       />
+      
+      {/* Add a Logout button */}
+      <button type="button" onClick={handleLogout} className="btn btn-danger mb-3">
+        Logout
+      </button>
 
       <table className="table mb-4">
         <thead>
